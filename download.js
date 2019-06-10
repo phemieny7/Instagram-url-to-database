@@ -1,5 +1,23 @@
-/* eslint no-undef: "error" */
-/* eslint-env browser */
+// @About
+/* A chrome extension that sends instagram images/video
+URL to mongodb database using AXIOS JS
+A tweak in the project intially developed by @aashutoshrathi
+https://github.com/aashutoshrathi/Insta-Downloader-Extension.
+*/
+
+// @what i have tried
+/*
+All i did was remove the download in <a> change the href link to a javascript function 
+(myFunction)
+that send the url to my to be processed in the javascript function 
+*/
+
+// @challenges
+/*
+The myFuntion() refuse to run on instagram.com with the console log saying myfunction() is not defined.
+*/
+
+
 
 function escapeHTML (str) {
   return str.replace(/[&"'<>]/g, m => escapeHTML.replacements[m])
