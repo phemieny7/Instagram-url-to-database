@@ -6,7 +6,7 @@ This project is built upon <a href="https://github.com/aashutoshrathi">Ashutosh 
 //What i did 
 Here, i changed <a href="https://github.com/aashutoshrathi">Ashutosh Rathi</a> code
 ```
-<a download href=${escapeHTML(video[0].content)}>
+<a download href=${escapeHTML(images[i].src)}>
                     <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>
  ```
 To this
