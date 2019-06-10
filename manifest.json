@@ -2,8 +2,8 @@
   "name": "Instagram Downloader",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "Injects download buttons to Instagram Media",
-  "homepage_url": "http://aashutoshrathi.co",
+  "description": "Injects download to send Instagram Media to Mongodb",
+  "homepage_url": "#",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
