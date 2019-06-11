@@ -32,7 +32,7 @@ escapeHTML.replacements = {
   '>': '&gt;'
 }
 
-actualCode = `function myFunction(text) {
+actualCode = `function myFunction(text,dplink,dlink) {
                      axios.post('localhost:5000/api/post/instagram', {
                           text: text,
                         })
@@ -303,7 +303,7 @@ function injectButtons () {
       let dplink = images[2 * i].src
 
       pfbutton.innerHTML = `
-      <a href="javascript:myFunction();">
+      <a href="javascript:myFunction(dplink);">
                 <button class="instaashu-material-circle instaashu-sm
                 instaashu-success instaashu-no-outline"
                 style ="margin-right:10px; padding: 4px 1px;">DP<i class="fas fa-arrow-circle-down"></i>
