@@ -1,27 +1,9 @@
-// @About
-/* A chrome extension that sends instagram images/video
-URL to mongodb database using AXIOS JS
-A tweak in the project intially developed by @aashutoshrathi
-https://github.com/aashutoshrathi/Insta-Downloader-Extension.
-*/
-
-// @what i have tried
-/*
-All i did was remove the download in <a> change the href link to a javascript function 
-(myFunction)
-that send the url to my to be processed in the javascript function 
-*/
-
-// @challenges
-/*
-The myFuntion() refuse to run on instagram.com with the console log saying myfunction() is not defined.
-*/
-
+* eslint no-undef: "error" */
+/* eslint-env browser */
 
 function escapeHTML (str) {
   return str.replace(/[&"'<>]/g, m => escapeHTML.replacements[m])
 }
-
 escapeHTML.replacements = {
   '&': '&amp;',
   '"': '&quot;',
@@ -29,17 +11,6 @@ escapeHTML.replacements = {
   '<': '&lt;',
   '>': '&gt;'
 }
-
-actualCode = `function myFunction(dplink) {
-                     return text;
-                    }
-                    console.log(myFunction())
-                    `
-
-var script = document.createElement('script');
-script.textContent = actualCode;
-(document.head||document.documentElement).appendChild(script);
-script.remove();
 
 const link = document.createElement('link')
 link.href = chrome.extension.getURL('insta-down-css.css')
@@ -167,28 +138,17 @@ function injectButtons () {
           const db = document.createElement('a')
           // making the image link a downloading link
           video[0].content = `${video[0].content}&dl=1`
-          
-          db.innerHTML = `<a href="myFunction(images[i].src);"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Send to Database</button>`
 
+          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
+                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
         })
       } else {
         const db = document.createElement('a')
-        db.innerHTML = ` <a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Send to Database</button>`
-          function myFunction() {
-                      var text = (images[i].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+        db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
+                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
         }
@@ -201,20 +161,10 @@ function injectButtons () {
   } else if (elseProfile) {
     // Someone else's profile
     const dlbutton = document.createElement('a')
-    dlbutton.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success">Send DP TO DB</button>
+    dlbutton.innerHTML = `
+                <a download href=${escapeHTML(images[0].src)}>
+                <button class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>
                  `
-                 function myFunction() {
-                      var text = (images[0].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
     if (headers[0].querySelectorAll('button').length < 1) {
       headers[0].appendChild(dlbutton)
     }
@@ -232,19 +182,8 @@ function injectButtons () {
           const db = document.createElement('a')
           video[0].content = `${video[0].content}&dl=1`
 
-          db.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Send Video</button>`
-                function myFunction() {
-                      var text = (video[0].content);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
+                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
@@ -252,33 +191,11 @@ function injectButtons () {
       } else {
         const db = document.createElement('a')
         if (images[i].className === '_6q-tv' && images[i].height === 50) {
-          db.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: -160px; top: -9px;">Send to DB</button>`
-               function myFunction() {
-                      var text = (images[i].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+          db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
+                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: -160px; top: -9px;">Download</button>`
         } else {
-          db.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Send to DB</button>`
-                  function myFunction() {
-                      var text = (images[i].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+          db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
+                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         }
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
@@ -291,19 +208,9 @@ function injectButtons () {
     }
   } else if (selfProfile) {
     const dlbutton = document.createElement('a')
-    dlbutton.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success">Send DP</button>`
-              function myFunction() {
-                      var text = (images[0].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+    dlbutton.innerHTML = `
+                <a download href=${escapeHTML(images[0].src)}>
+                <button class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>`
     if (headers[0].querySelectorAll('button').length < 4) {
       headers[0].appendChild(dlbutton)
     }
@@ -320,39 +227,16 @@ function injectButtons () {
           const db = document.createElement('a')
           video[0].content = `${video[0].content}&dl=1`
 
-          db.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Send Video to DB</button>`
-                           function myFunction() {
-                      var text = (video[0].content);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
+          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
+                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
         })
       } else {
         const db = document.createElement('a')
-        db.innerHTML = `<a href="javascript:myFunction();"><button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
-                               function myFunction() {
-                      var text = (images[i].src);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
-
+        db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
+                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
         }
@@ -382,12 +266,11 @@ function injectButtons () {
       let dplink = images[2 * i].src
 
       pfbutton.innerHTML = `
-      <a href="javascript:myFunction(dplink);">
+                <a download href=${escapeHTML(dplink)}>
                 <button class="instaashu-material-circle instaashu-sm
                 instaashu-success instaashu-no-outline"
                 style ="margin-right:10px; padding: 4px 1px;">DP<i class="fas fa-arrow-circle-down"></i>
-                </button> </a>`
-               
+                </button></a>`
 
       buttonsParent.appendChild(pfbutton)
 
@@ -412,48 +295,23 @@ function injectButtons () {
       if (videos[j] && videos[j].poster === dlink) {
         if (videos[j] && videos[j].src) {
           dlink = videos[j].src
-          dlbutton.innerHTML = `<a href="javascript:myFunction();">
+          dlbutton.innerHTML = `
+          <a download href=${escapeHTML(dlink)}>
           <button class="dCJp8 afkep _0mzm-">
           <img
           class="download-video-icon"
           src="https://img.icons8.com/ios/50/000000/sending-video-frames.png" width=29>
-          </button> </a>`
-          function myFunction() {
-                      var text = (dlink);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
-
-
+          </button></a>`
         }
         j += 1
       } else {
         dlbutton.innerHTML = `
-        <a href="javascript:myFunction();">
+        <a download href=${escapeHTML(dlink)}>
         <button class="dCJp8 afkep _0mzm-">
         <img
         class="download-icon"
         src="https://img.icons8.com/ios/50/000000/installing-updates.png" width=29>
         </button></a>`
-        function myFunction() {
-                      var text = (dlink);
-                     axios.post('localhost:5000/api/post/instagram', {
-                          text: text,
-                        })
-                        .then(function (response) {
-                          console.log(response);
-                        })
-                        .catch(function (error) {
-                          console.log(error);
-                        });
-                    }
       }
 
       childSpan.appendChild(dlbutton)
