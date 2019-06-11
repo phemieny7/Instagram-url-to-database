@@ -1,4 +1,4 @@
-* eslint no-undef: "error" */
+/* eslint no-undef: "error" */
 /* eslint-env browser */
 
 function escapeHTML (str) {
@@ -11,6 +11,21 @@ escapeHTML.replacements = {
   '<': '&lt;',
   '>': '&gt;'
 }
+
+
+
+actualCode = `function myFunction() {
+  var x = document.getElementById("myBtn").value;
+  console.log(x);
+}`
+
+var script = document.createElement('script');
+script.textContent = actualCode;
+(document.head||document.documentElement).appendChild(script);
+script.remove();
+
+
+
 
 const link = document.createElement('link')
 link.href = chrome.extension.getURL('insta-down-css.css')
@@ -266,7 +281,7 @@ function injectButtons () {
       let dplink = images[2 * i].src
 
       pfbutton.innerHTML = `
-                <a download href=${escapeHTML(dplink)}>
+                <a href="#">
                 <button class="instaashu-material-circle instaashu-sm
                 instaashu-success instaashu-no-outline"
                 style ="margin-right:10px; padding: 4px 1px;">DP<i class="fas fa-arrow-circle-down"></i>
@@ -296,7 +311,7 @@ function injectButtons () {
         if (videos[j] && videos[j].src) {
           dlink = videos[j].src
           dlbutton.innerHTML = `
-          <a download href=${escapeHTML(dlink)}>
+          <a href="#"}>
           <button class="dCJp8 afkep _0mzm-">
           <img
           class="download-video-icon"
@@ -306,8 +321,8 @@ function injectButtons () {
         j += 1
       } else {
         dlbutton.innerHTML = `
-        <a download href=${escapeHTML(dlink)}>
-        <button class="dCJp8 afkep _0mzm-">
+        <a href="javascript:void(0);">
+        <button id="myBtn" onclick="myFunction()" value="${escapeHTML(dlink)}" class="dCJp8 afkep _0mzm-">
         <img
         class="download-icon"
         src="https://img.icons8.com/ios/50/000000/installing-updates.png" width=29>
