@@ -1,0 +1,25 @@
+{
+  "name": "instagram-url-to-database",
+  "version": "1.0.0",
+  "description": "A chrome extension to save instagram to your database",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phemieny7/Instagram-url-to-database.git"
+  },
+  "keywords": [
+    "javascript",
+    "Instagram",
+    "chrome",
+    "extension"
+  ],
+  "author": "Oyewo Oluwafemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phemieny7/Instagram-url-to-database/issues"
+  },
+  "homepage": "https://github.com/phemieny7/Instagram-url-to-database#readme"
+}
