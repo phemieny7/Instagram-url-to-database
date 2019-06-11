@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/phemieny7/Instagram-url-to-database/issues"
   },
-  "homepage": "https://github.com/phemieny7/Instagram-url-to-database#readme"
+  "homepage": "https://github.com/phemieny7/Instagram-url-to-database#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "axios-chrome-messaging-adapter": "^0.2.0"
+  }
 }
