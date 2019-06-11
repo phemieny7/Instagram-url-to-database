@@ -1,3 +1,8 @@
+const axios = require('axios')
+const axiosChromeMessagingAdapter = require('axios-chrome-messaging-adapter')
+ 
+// register the adapter message hanlder
+axiosChromeMessagingAdapter.registerMessageHandler()
 chrome.webNavigation.onCompleted.addListener(
 
   function (navigationEvent) {
@@ -7,6 +12,11 @@ chrome.webNavigation.onCompleted.addListener(
     chrome.tabs.executeScript(tabId, { file: 'dist/jszip.min.js' })
     chrome.tabs.executeScript(tabId, { file: 'dist/jszip-utils.min.js' })
     chrome.tabs.executeScript(tabId, { file: 'dist/FileSaver.min.js' })
+    const axios = require('axios')
+    const axiosChromeMessagingAdapter = require('axios-chrome-messaging-adapter')
+ 
+    // register the adapter message hanlder
+    axiosChromeMessagingAdapter.registerMessageHandler()
   },
   { url: [{ hostSuffix: '.instagram.com' }] }
 )
