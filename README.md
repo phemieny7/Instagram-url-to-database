@@ -1,7 +1,7 @@
 # Instagram-url-to-database
 A simple Chrome extension that can help transfer image and video URL to mongoDB Database. 
 
-This project is built upon <a href="https://github.com/aashutoshrathi">Ashutosh Rathi</a> initial project <a href="https://github.com/aashutoshrathi/Insta-Downloader-Extension">Insta Downloader Extension</a>.
+This project is built upon <a href="https://github.com/aashutoshrathi">Aashutosh Rathi</a> initial project <a href="https://github.com/aashutoshrathi/Insta-Downloader-Extension">Insta Downloader Extension</a>.
 
 //What i did 
 Here, i changed <a href="https://github.com/aashutoshrathi">Ashutosh Rathi</a> code
