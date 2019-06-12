@@ -154,16 +154,16 @@ function injectButtons () {
           // making the image link a downloading link
           video[0].content = `${video[0].content}&dl=1`
 
-          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
-                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
+          db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(video[0].content)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
         })
       } else {
         const db = document.createElement('a')
-        db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
-                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
+        db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[i].src)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
         }
@@ -177,8 +177,8 @@ function injectButtons () {
     // Someone else's profile
     const dlbutton = document.createElement('a')
     dlbutton.innerHTML = `
-                <a download href=${escapeHTML(images[0].src)}>
-                <button class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>
+                <a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[0].src)}" class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>
                  `
     if (headers[0].querySelectorAll('button').length < 1) {
       headers[0].appendChild(dlbutton)
@@ -197,8 +197,8 @@ function injectButtons () {
           const db = document.createElement('a')
           video[0].content = `${video[0].content}&dl=1`
 
-          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
-                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
+          db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(video[0].content)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
@@ -206,11 +206,11 @@ function injectButtons () {
       } else {
         const db = document.createElement('a')
         if (images[i].className === '_6q-tv' && images[i].height === 50) {
-          db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
-                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: -160px; top: -9px;">Download</button>`
+          db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[i].src)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: -160px; top: -9px;">Download</button>`
         } else {
-          db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
-                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
+          db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[i].src)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         }
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
@@ -224,8 +224,8 @@ function injectButtons () {
   } else if (selfProfile) {
     const dlbutton = document.createElement('a')
     dlbutton.innerHTML = `
-                <a download href=${escapeHTML(images[0].src)}>
-                <button class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>`
+                <a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[0].src)}" class="instanshu-unite instanshu-sm instanshu-success">Download DP</button>`
     if (headers[0].querySelectorAll('button').length < 4) {
       headers[0].appendChild(dlbutton)
     }
@@ -242,16 +242,16 @@ function injectButtons () {
           const db = document.createElement('a')
           video[0].content = `${video[0].content}&dl=1`
 
-          db.innerHTML = `<a download href=${escapeHTML(video[0].content)}>
-                    <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
+          db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(video[0].content)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;"> Download Video</button>`
           if (x.querySelectorAll('button').length < 1) {
             x.appendChild(db)
           }
         })
       } else {
         const db = document.createElement('a')
-        db.innerHTML = `<a download href=${escapeHTML(images[i].src)}>
-                  <button class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
+        db.innerHTML = `<a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(images[i].src)}" class="instanshu-unite instanshu-sm instanshu-success" style="left: 100px; top: 10px;">Download</button>`
         if (x.querySelectorAll('button').length < 1) {
           x.appendChild(db)
         }
@@ -281,8 +281,8 @@ function injectButtons () {
       let dplink = images[2 * i].src
 
       pfbutton.innerHTML = `
-                <a href="#">
-                <button class="instaashu-material-circle instaashu-sm
+                <a href="javascript:void(0);">
+                <button id="myBtn" onclick="myFunction()" value="${escapeHTML(dlink)}" class="instaashu-material-circle instaashu-sm
                 instaashu-success instaashu-no-outline"
                 style ="margin-right:10px; padding: 4px 1px;">DP<i class="fas fa-arrow-circle-down"></i>
                 </button></a>`
@@ -311,8 +311,8 @@ function injectButtons () {
         if (videos[j] && videos[j].src) {
           dlink = videos[j].src
           dlbutton.innerHTML = `
-          <a href="#"}>
-          <button class="dCJp8 afkep _0mzm-">
+          <a href="javascript:void(0);"}>
+          <button id="myBtn" onclick="myFunction()" value="${escapeHTML(dlink)}" class="dCJp8 afkep _0mzm-">
           <img
           class="download-video-icon"
           src="https://img.icons8.com/ios/50/000000/sending-video-frames.png" width=29>
