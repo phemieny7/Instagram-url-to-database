@@ -14,10 +14,10 @@ escapeHTML.replacements = {
 
 
 
-actualCode = `function myFunction() {
+actualCode = function myFunction() {
   var x = document.getElementById("myBtn").value;
   console.log(x);
-}`
+}
 
 var script = document.createElement('script');
 script.textContent = actualCode;
